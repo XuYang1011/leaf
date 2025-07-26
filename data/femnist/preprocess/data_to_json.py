@@ -12,6 +12,9 @@ import os
 import sys
 
 from PIL import Image
+# Alias ANTIALIAS to LANCZOS for newer Pillow versions
+if not hasattr(Image, 'ANTIALIAS'):
+    Image.ANTIALIAS = Image.LANCZOS
 
 utils_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 utils_dir = os.path.join(utils_dir, 'utils')
